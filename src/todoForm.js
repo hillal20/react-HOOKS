@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./css/App.css";
+import { NewTodoContext } from "./createNewContext/newContext";
 
 function Form(props) {
   const { addTodoFun } = props;
@@ -16,6 +17,8 @@ function Form(props) {
     updateState(e.target.value);
   };
 
+  const appContext = useContext(NewTodoContext);
+  console.log("appContext2 ===> ", appContext);
   return (
     <div className="form">
       <h3>Form </h3>

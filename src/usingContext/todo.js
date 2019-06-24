@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { NewTodoContext } from "../createNewContext/newContext";
 
 const Todo2 = props => {
   const [loadedTodo, setLoadedTodo] = useState([]);
