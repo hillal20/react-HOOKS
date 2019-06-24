@@ -3,7 +3,7 @@ import "./css/App.css";
 import Todo from "./todo.js";
 import Form from "./todoForm.js";
 import UsingContext from "./usingContext/todo.js";
-
+import UsingContextHttp from "./usingContext/todoUsingHttpHook";
 function App() {
   const [toDosState, updateState] = useState([
     {
@@ -50,7 +50,8 @@ function App() {
         })}
       </div>
       <Form addTodoFun={addTodoFun} />
-      <UsingContext />
+      <UsingContext something="aissani" />
+      <UsingContextHttp something="balala" />
     </div>
   );
 }
