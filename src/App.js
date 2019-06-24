@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import "./css/App.css";
 import Todo from "./todo.js";
 import Form from "./todoForm.js";
+import UsingContext from "./usingContext/todo.js";
+
 function App() {
   const [toDosState, updateState] = useState([
     {
@@ -48,6 +50,7 @@ function App() {
         })}
       </div>
       <Form addTodoFun={addTodoFun} />
+      <UsingContext />
     </div>
   );
 }
