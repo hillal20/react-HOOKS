@@ -2,10 +2,13 @@ import React, { useContext, useState } from "react";
 import "./css/App.css";
 
 function Todo(props) {
-  const { todo, index, makeCompleted } = props;
+  const { todo, index, makeCompleted, deleteTodo } = props;
 
   const completeHandler = e => {
     makeCompleted(index);
+  };
+  const deleteHandler = index => {
+    deleteTodo(index);
   };
   return (
     <div className="todo">
@@ -15,6 +18,7 @@ function Todo(props) {
         {todo.text}
         <button onClick={completeHandler}>mark completed</button>
       </div>
+      <button onClick={deleteHandler}> Delete </button>
       <div> {todo.completed.toString()}</div>
     </div>
   );

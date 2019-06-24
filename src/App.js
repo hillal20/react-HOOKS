@@ -26,13 +26,24 @@ function App() {
     newTodo[index].completed = true;
     updateState(newTodo);
   };
+  const deleteTodo = index => {
+    const newTodo = [...toDosState];
+    newTodo.splice(index, 1);
+    updateState(newTodo);
+  };
   return (
     <div className="App">
       <div className="todo-list">
         <h3>To Do List </h3>
         {toDosState.map((el, i) => {
           return (
-            <Todo key={i} todo={el} index={i} makeCompleted={makeCompleted} />
+            <Todo
+              key={i}
+              todo={el}
+              index={i}
+              makeCompleted={makeCompleted}
+              deleteTodo={deleteTodo}
+            />
           );
         })}
       </div>
