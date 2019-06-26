@@ -9,7 +9,6 @@ import todoReducer from "./reducer/reducer.js";
 
 import Store from "./store/store.js";
 function App() {
-  document.title = "react-hooks";
   const [toDosState, updateState] = useState([
     {
       text: "learn about react",
@@ -24,6 +23,14 @@ function App() {
       completed: false
     }
   ]);
+
+  const [playerState, updatePlayer] = useState({
+    player: "renaldo",
+    age: "20"
+  });
+
+  console.log("playerState ==> ", playerState);
+  console.log("updatePlayer ==> ", updatePlayer);
   const addTodoFun = x => {
     const newTodo = [...toDosState, { text: x, completed: false }];
     updateState(newTodo);
@@ -46,7 +53,14 @@ function App() {
   return (
     // <Store>
     <NewTodoContext.Provider
-      value={{ toDosState, dispatch, updateState, stateReducer }}
+      value={{
+        toDosState,
+        dispatch,
+        updateState,
+        stateReducer,
+        playerState,
+        updatePlayer
+      }}
     >
       <div className="App">
         <div className="todo-list">
