@@ -1,7 +1,5 @@
-const initialState = [];
-
-const todoReducer = (state = initialState, action) => {
-  console.log("reducer is running ......");
+const todoReducer = (state, action) => {
+  console.log("reducer is running ===> ", action.type);
   switch (action.type) {
     case "MODIFY_APP":
       return (state = [...state, action.payload]);

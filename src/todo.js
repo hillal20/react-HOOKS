@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./css/App.css";
 import { NewTodoContext } from "./createNewContext/newContext";
 function Todo(props) {
@@ -11,17 +11,10 @@ function Todo(props) {
     deleteTodo(index);
   };
   const appContext = useContext(NewTodoContext);
-  console.log("stateApp ===> ", appContext);
 
   const updatingApp = e => {
-    alert("updaing");
     const newState = appContext.toDosState;
     newState.push({ text: "hilal aissani", completed: false });
-
-    // appContext.updateState(newState);
-    console.log("newState ===> ", appContext.toDosState);
-    console.log("stateReducer ===> ", appContext.stateReducer);
-
     appContext.dispatch({ type: "MODIFY_APP", payload: newState });
   };
   return (
@@ -34,7 +27,7 @@ function Todo(props) {
       </div>
       <button onClick={deleteHandler}> Delete </button>
       <div> {todo.completed.toString()}</div>
-      <button onClick={updatingApp}>play with state </button>
+      <button onClick={updatingApp}>Update The State </button>
     </div>
   );
 }

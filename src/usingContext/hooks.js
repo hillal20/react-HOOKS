@@ -11,7 +11,7 @@ export const useHttp = (url, dependencies) => {
     promise
       .then(res => {
         setIsLoading(false);
-        console.log("res ==>", res.data.msg);
+        // console.log("res ==>", res.data.msg);
 
         setFetchedData(res.data.msg);
       })

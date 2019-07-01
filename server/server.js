@@ -30,5 +30,5 @@ server.get("/otherData", (req, res) => {
 });
 
 server.listen(4000, () => {
-  console.log("=== server is running === ");
+  console.log("=== server is running === 4000");
 });

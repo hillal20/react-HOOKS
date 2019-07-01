@@ -1,4 +1,4 @@
-import React, { useContext, useState, useReducer } from "react";
+import React, { useState, useReducer } from "react";
 import "./css/App.css";
 import Todo from "./todo.js";
 import Form from "./todoForm.js";
@@ -7,7 +7,6 @@ import UsingContextHttp from "./usingContext/todoUsingHttpHook";
 import { NewTodoContext } from "./createNewContext/newContext.js";
 import todoReducer from "./reducer/reducer.js";
 
-import Store from "./store/store.js";
 function App() {
   const [toDosState, updateState] = useState([
     {
@@ -29,8 +28,6 @@ function App() {
     age: "20"
   });
 
-  console.log("playerState ==> ", playerState);
-  console.log("updatePlayer ==> ", updatePlayer);
   const addTodoFun = x => {
     const newTodo = [...toDosState, { text: x, completed: false }];
     updateState(newTodo);
@@ -46,17 +43,13 @@ function App() {
     updateState(newTodo);
   };
   const [stateReducer, dispatch] = useReducer(todoReducer, toDosState);
-  console.log("dispatch==>", dispatch);
-  console.log("stateReducer app==>", stateReducer);
-  console.log("todoReducerapp==>", todoReducer);
 
   return (
-    // <Store>
     <NewTodoContext.Provider
       value={{
         toDosState,
-        dispatch,
         updateState,
+        dispatch,
         stateReducer,
         playerState,
         updatePlayer
@@ -82,7 +75,6 @@ function App() {
         <UsingContextHttp something="balala" />
       </div>
     </NewTodoContext.Provider>
-    // </Store>
   );
 }
 

@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useRef } from "react";
 import "./css/App.css";
-import { NewTodoContext } from "./createNewContext/newContext";
 
 function Form(props) {
   const { addTodoFun } = props;
@@ -15,10 +14,9 @@ function Form(props) {
   };
   const updateStateHandler = e => {
     updateState(e.target.value);
+    inputRef.current.focus();
   };
-
-  const appContext = useContext(NewTodoContext);
-  console.log("appContext2 ===> ", appContext);
+  const inputRef = useRef(null);
   return (
     <div className="form">
       <h3>Form </h3>
@@ -27,6 +25,7 @@ function Form(props) {
         name="addText"
         value={formState}
         onChange={updateStateHandler}
+        ref={inputRef}
       />
 
       <button onClick={submitHandler}> Submit</button>

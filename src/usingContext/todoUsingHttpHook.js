@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+
 import { useHttp } from "./hooks";
 const Todo3 = props => {
   const [isLoadingHttp, fetchedDataHttp] = useHttp(
@@ -7,8 +7,8 @@ const Todo3 = props => {
     [] // array of dependencies
   );
 
-  console.log("isLoadingHttp ===> ", isLoadingHttp);
-  console.log("fetchedDataHttp===> ", fetchedDataHttp);
+  // console.log("isLoadingHttp ===> ", isLoadingHttp);
+  // console.log("fetchedDataHttp===> ", fetchedDataHttp);
 
   return (
     <div className="todo">
