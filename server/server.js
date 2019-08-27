@@ -10,13 +10,14 @@ server.get("/", (req, res) => {
 });
 
 server.get("/data", (req, res) => {
+  console.log("req ==> ", req.headers);
   const arr = [
     { text: "hollow word 1", completed: false },
     { text: "hollow word 2", completed: false },
     { text: "hollow word 3", completed: false },
     { text: "hollow word 4", completed: false }
   ];
-  res.status(200).json({ msg: arr });
+  res.status(200).json({ arr });
 });
 
 server.get("/otherData", (req, res) => {
